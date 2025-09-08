@@ -1,1 +1,53 @@
-print("hello world!!!!!")
+BLANK = '  '
+X = 'X'
+O = 'O'
+N = 3
+MAX_TRIES = N*N
+isGame = True
+tries = 0
+turn = X
+
+matrix = [
+    [BLANK, BLANK, BLANK],
+    [BLANK, BLANK, BLANK],
+    [BLANK, BLANK, BLANK]
+]
+
+
+def print_mat(mat, whos_turn):
+    print(f"{whos_turn} to play")
+    for row in range(N):
+        for cell in range(N-1):
+            print(mat[row][cell], end="|")
+        print(mat[row][N-1])
+        if row != N-1:
+            print("--------")
+
+def valid_input(sign):
+    cord = int(input(f"Enter {sign} cord (1~{N}): "))
+    while not 1 <= cord <= N:
+        cord = int(input(f"Enter {sign} cord (1~{N}): "))
+    return cord - 1
+
+def toggle(whos_turn):
+    if whos_turn == X:
+        return O
+    return X
+
+
+while isGame and tries < MAX_TRIES:
+    print_mat(matrix, turn)
+    col = valid_input('x')
+    row = valid_input('y')
+
+    if matrix[row][col] == BLANK:
+        matrix[row][col] = turn
+        tries += 1
+        turn = toggle(turn)
+    else:
+        print("The place isn't BLANK!!!")
+        print("Play again")
+
+
+
+
