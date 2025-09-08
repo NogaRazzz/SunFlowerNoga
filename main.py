@@ -34,6 +34,34 @@ def toggle(whos_turn):
         return O
     return X
 
+def is_there_a_winner(mat, is_game):
+    a_row = []
+    a_col = []
+    for row in mat:
+        a_row.append(row[0])
+        a_row = [x for x in row[0] if x in a_row]
+        if len(a_row) == N:
+            print("Win")
+            return False
+    for
+
+
+
+    for row in mat:
+        how_much_in_row = 0
+        for col in mat:
+            how_much_in_row += 1
+            if how_much_in_row == N:
+                print("Win")
+                is_game = False
+    for col_index in len(mat)-1:
+        for row_index in len(mat) - 1:
+            mat[]
+
+    return is_game
+
+
+
 
 while isGame and tries < MAX_TRIES:
     print_mat(matrix, turn)
@@ -47,7 +75,5 @@ while isGame and tries < MAX_TRIES:
     else:
         print("The place isn't BLANK!!!")
         print("Play again")
-
-
 
 
